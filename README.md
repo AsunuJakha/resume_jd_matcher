@@ -60,6 +60,7 @@ POST /match
 }
 ```
 ## 📦 Folder Structure
+```
 resume-jd-matcher/
 ├── app.py # Flask backend
 ├── utils/
@@ -67,6 +68,7 @@ resume-jd-matcher/
 ├── requirements.txt # Dependencies
 ├── .gitignore
 └── README.md # This file
+```
 
 🧠 Future Enhancements
 🤖 Upgrade to BERT / Sentence Transformers for semantic AI
