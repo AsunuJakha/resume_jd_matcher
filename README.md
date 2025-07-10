@@ -46,9 +46,7 @@ An AI-inspired tool that evaluates how well a resume matches a job description. 
 **Endpoint:**
 POST /match
 
-mathematica
-Copy
-Edit
+
 
 **Form-Data Parameters:**
 - `resume`: File (PDF)
@@ -61,17 +59,15 @@ Edit
   "matched_keywords": ["python", "flask", "automation", "developer"]
 }
 ```
-📦 Folder Structure
-bash
-Copy
-Edit
+## 📦 Folder Structure
 resume-jd-matcher/
-├── app.py                # Flask backend
+├── app.py # Flask backend
 ├── utils/
-│   └── matcher.py        # TF-IDF + similarity logic
-├── requirements.txt      # Dependencies
+│ └── matcher.py # TF-IDF + similarity logic
+├── requirements.txt # Dependencies
 ├── .gitignore
-└── README.md             # This file
+└── README.md # This file
+
 🧠 Future Enhancements
 🤖 Upgrade to BERT / Sentence Transformers for semantic AI
 
