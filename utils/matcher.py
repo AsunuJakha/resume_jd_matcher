@@ -1,41 +1,40 @@
-import io
-import re
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics.pairwise import cosine_similarity
+from sentence_transformers import SentenceTransformer, util
 from pdfminer.high_level import extract_text
+from nltk.corpus import stopwords
+import nltk
+import re
+
+# Download stopwords (only needed the first time)
+nltk.download('stopwords')
+
+# Load BERT model once
+model = SentenceTransformer('all-MiniLM-L6-v2')
+stop_words = set(stopwords.words('english'))
 
 def clean_text(text):
-    # Remove punctuation, numbers, and lowercase everything
     text = re.sub(r'[^a-zA-Z\s]', '', text)
     return text.lower()
 
 def extract_resume_text(pdf_file):
-    # Read the binary content from Flask's FileStorage object
-    file_stream = pdf_file.stream  # Get the file-like object
-    text = extract_text(file_stream)  # pdfminer can read from this
+    # Read text from uploaded PDF file
+    text = extract_text(pdf_file.stream)
     return clean_text(text)
 
-
 def compute_match_score(resume_file, job_description):
-    # Extract text from resume PDF
+    # Extract and clean text
     resume_text = extract_resume_text(resume_file)
-
-    # Clean JD too
     job_description = clean_text(job_description)
 
-    # Use TF-IDF to vectorize both
-    vectorizer = TfidfVectorizer()
-    vectors = vectorizer.fit_transform([resume_text, job_description])
+    # Generate sentence embeddings using BERT
+    embeddings = model.encode([resume_text, job_description], convert_to_tensor=True)
 
-    # Calculate cosine similarity
-    similarity = cosine_similarity(vectors[0:1], vectors[1:2])[0][0]
+    # Compute cosine similarity between the resume and JD
+    similarity_score = util.pytorch_cos_sim(embeddings[0], embeddings[1]).item()
+    match_score = round(similarity_score * 100, 2)
 
-    # Convert to percentage
-    match_score = round(similarity * 100, 2)
-
-    # Optional: Find matched keywords (overlap in top words)
-    resume_keywords = set(resume_text.split())
-    jd_keywords = set(job_description.split())
-    matched_keywords = list(resume_keywords.intersection(jd_keywords))
+    # Extract meaningful overlapping keywords (exclude stopwords)
+    resume_words = set(word for word in resume_text.split() if word not in stop_words)
+    jd_words = set(word for word in job_description.split() if word not in stop_words)
+    matched_keywords = sorted(list(resume_words.intersection(jd_words)))
 
     return match_score, matched_keywords
