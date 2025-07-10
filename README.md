@@ -14,10 +14,11 @@ Built with `Flask`, `sentence-transformers`, and classical NLP to simulate how r
 
 - 📄 Upload a resume (PDF format)
 - 📋 Paste a job description
-- 🧠 NLP-based text analysis (TF-IDF + cosine similarity)
-- 📊 Match score (0–100%) showing how relevant the resume is to the JD
-- 🧾 Shows overlapping keywords between resume and JD
-- ⚙️ Ready for future upgrades: BERT, frontend UI, deployment
+- 🧠 Uses Sentence-BERT (MiniLM) for **semantic similarity**
+- 🧾 Filters out meaningless stopwords from keyword matches
+- 📊 Returns a match score (0–100%) based on real contextual meaning
+- 🔍 Lists matched **meaningful** keywords (e.g., "developer", "docker", not "and", "to")
+- ⚙️ Ready for future upgrades: match labels, UI, deployment
 
 ---
 
@@ -36,14 +37,17 @@ Built with `Flask`, `sentence-transformers`, and classical NLP to simulate how r
 
 ## 🔍 How It Works
 
-1. User uploads a resume in PDF format
-2. Job description is pasted as text
-3. Text is cleaned and vectorized using TF-IDF
-4. Cosine similarity is calculated between vectors
-5. Returns:
-   - 🎯 Match score (as percentage)
-   - 🧩 List of matched keywords
 
+1. User uploads a resume in PDF format
+2. Job description is pasted as plain text
+3. The system:
+   - Extracts and cleans text from the PDF
+   - Removes stopwords (like "in", "with", "to", "the")
+   - Encodes both resume and JD using **Sentence-BERT (MiniLM)**
+4. Calculates **cosine similarity** between both embeddings
+5. Returns:
+   - 🎯 A match score (0–100%)
+   - 🧩 A list of matched **meaningful** keywords
 ---
 
 ## 📷 API Demo (via Postman)
