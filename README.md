@@ -60,6 +60,7 @@ Edit
   "match_score": 82.45,
   "matched_keywords": ["python", "flask", "automation", "developer"]
 }
+```
 📦 Folder Structure
 bash
 Copy
