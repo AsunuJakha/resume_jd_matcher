@@ -1,9 +1,13 @@
-# 🧠 Resume–Job Description Matcher
+> 🔀 This is the `bert-upgrade` branch — upgraded to AI-based semantic similarity using Sentence-BERT.
 
-An AI-inspired tool that evaluates how well a resume matches a job description. Built using Python, Flask, and classical Natural Language Processing (NLP) techniques like TF-IDF and cosine similarity.
 
-> ✅ Built for placement prep, resume optimization, and real-world HR tech use cases.
+# 🧠 Resume–Job Description Matcher (BERT Version)
 
+An AI-powered tool that evaluates how well a resume matches a job description — using state-of-the-art **BERT embeddings** for deep semantic comparison.
+
+Built with `Flask`, `sentence-transformers`, and classical NLP to simulate how real-world ATS systems analyze job relevance.
+
+> ✅ This is the `bert-upgrade` branch. It uses Sentence-BERT (`all-MiniLM-L6-v2`) for context-aware matching, with stopword filtering for accurate keyword overlap.
 ---
 
 ## 🚀 Features
@@ -19,13 +23,14 @@ An AI-inspired tool that evaluates how well a resume matches a job description. 
 
 ## 🛠 Tech Stack
 
-| Layer         | Tools Used                    |
-|---------------|-------------------------------|
-| **Backend**   | Python, Flask                 |
-| **NLP Engine**| Scikit-learn, TF-IDF, Cosine Similarity |
-| **PDF Parsing**| pdfminer.six                 |
-| **Testing**   | Postman (for file+text API testing) |
-| **Versioning**| Git, GitHub                   |
+| Layer                 | Tools Used                                |
+| --------------------- | ----------------------------------------- |
+| **Backend**           | Python, Flask                             |
+| **NLP Engine**        | Sentence-BERT (MiniLM), Cosine Similarity |
+| **PDF Parsing**       | pdfminer.six                              |
+| **Keyword Filtering** | nltk (stopwords)                          |
+| **Testing**           | Postman                                   |
+| **Versioning**        | Git, GitHub (`bert-upgrade` branch)       |
 
 ---
 
@@ -71,15 +76,36 @@ resume-jd-matcher/
 ```
 
 ## 🧠 Future Enhancements
-- 🤖 Upgrade to BERT / Sentence Transformers for semantic AI
 
-- 🌐 Add frontend upload form (React or plain HTML)
+- 🎯 **Score Explanation**  
+  Show why a resume got a high/low score — using heatmaps or keyword relevance.
 
-- ☁️ Deploy to Render / Hugging Face Spaces
+- 🏷️ **Match Labeling**  
+  Add match labels like `Low`, `Moderate`, `Strong`, `Excellent` based on score range.
 
-- 📊 Add keyword analysis + optimization feedback
+- 🧠 **Chunk-Level Semantic Matching**  
+  Break resume and JD into sections (skills, experience, bullet points) and compare in pairs for better accuracy.
 
-- 📁 Add exportable reports (PDF / email)
+- 🌐 **Frontend Upload Interface**  
+  Build a web UI to let users upload resumes and view scores in real time (React, HTML, or Streamlit).
+
+- 📤 **PDF Report Export**  
+  Generate downloadable match reports with scores, keywords, and improvement tips.
+
+- ☁️ **Deployment**  
+  Host the app on Render, Hugging Face Spaces, or Streamlit Cloud for public use.
+
+- 📈 **Keyword Frequency Heatmaps**  
+  Highlight high-impact keywords in resume vs. JD.
+
+- 🔍 **Skill Gap Insights**  
+  Recommend what’s missing in the resume to match a specific JD better (based on semantic distance).
+
+- 🗃️ **Multiple JD Comparison**  
+  Let users upload one resume and match it to several job descriptions.
+
+- 🧪 **BERT Model Selector**  
+  Add option to switch between BERT models like `MiniLM`, `MPNet`, `RoBERTa` for experimentation.
 
 ## 👨‍💻 Author
 Asunu Jakha
