@@ -70,23 +70,23 @@ resume-jd-matcher/
 └── README.md # This file
 ```
 
-🧠 Future Enhancements
--🤖 Upgrade to BERT / Sentence Transformers for semantic AI
+## 🧠 Future Enhancements
+- 🤖 Upgrade to BERT / Sentence Transformers for semantic AI
 
--🌐 Add frontend upload form (React or plain HTML)
+- 🌐 Add frontend upload form (React or plain HTML)
 
--☁️ Deploy to Render / Hugging Face Spaces
+- ☁️ Deploy to Render / Hugging Face Spaces
 
--📊 Add keyword analysis + optimization feedback
+- 📊 Add keyword analysis + optimization feedback
 
--📁 Add exportable reports (PDF / email)
+- 📁 Add exportable reports (PDF / email)
 
-👨‍💻 Author
+## 👨‍💻 Author
 Asunu Jakha
 📍 Dimapur, Nagaland
-🔗 LinkedIn | 🌐 asunuofficial.com
+🔗 LinkedIn | (https://www.linkedin.com/in/asunu-jakha-3995a3258?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app)
 
-💡 Why This Matters
+## 💡 Why This Matters
 This project simulates how modern Applicant Tracking Systems (ATS) work — giving you insight into what companies look for and how to tailor your resume to match real job descriptions.
 
 ⭐ If you found this project useful or insightful, feel free to star it on GitHub!
