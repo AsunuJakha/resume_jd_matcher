@@ -71,15 +71,15 @@ resume-jd-matcher/
 ```
 
 🧠 Future Enhancements
-🤖 Upgrade to BERT / Sentence Transformers for semantic AI
+-🤖 Upgrade to BERT / Sentence Transformers for semantic AI
 
-🌐 Add frontend upload form (React or plain HTML)
+-🌐 Add frontend upload form (React or plain HTML)
 
-☁️ Deploy to Render / Hugging Face Spaces
+-☁️ Deploy to Render / Hugging Face Spaces
 
-📊 Add keyword analysis + optimization feedback
+-📊 Add keyword analysis + optimization feedback
 
-📁 Add exportable reports (PDF / email)
+-📁 Add exportable reports (PDF / email)
 
 👨‍💻 Author
 Asunu Jakha
